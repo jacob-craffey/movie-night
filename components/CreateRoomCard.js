@@ -1,13 +1,10 @@
 import Router from "next/router";
+import axios from "axios";
 
 function CreateRoomCard() {
-  const generateNewRoom = () => {
-    const id = Math.random().toString(36).slice(-6);
-
-    Router.push({
-      pathname: "/room",
-      query: { id },
-    });
+  const generateNewRoom = async () => {
+    const createRoom = await axios.post("/api/create-room");
+    Router.push(`room/${createRoom.data.id}`);
   };
 
   return (
