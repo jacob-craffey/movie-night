@@ -3,8 +3,12 @@ import axios from "axios";
 
 function CreateRoomCard() {
   const generateNewRoom = async () => {
-    const createRoom = await axios.post("/api/create-room");
-    Router.push(`room/${createRoom.data.id}`);
+    const res = await axios.post("/api/create-room");
+    if (res.status === 200) {
+      Router.push(`room/${res.data.id}`);
+    } else {
+      console.error('Error creating room')
+    }
   };
 
   return (

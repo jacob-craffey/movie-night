@@ -7,7 +7,7 @@ function JoinRoomCard() {
       </p>
       <form className="flex flex-col">
         <input
-          className="border rounded-md bg-light-gray h-8 p-2 text-black mb-5"
+          className="text-input"
           type="text"
           required
           placeholder="Room Code"
